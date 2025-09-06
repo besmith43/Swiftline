@@ -7,6 +7,7 @@
 //
 
 /// Return the command line arguments passed to the script
+@preconcurrency
 public class Args {
   
   /// Return the list of arguments passed to the script
