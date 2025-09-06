@@ -48,7 +48,6 @@ public class Args {
 }
 
 
-@MainActor
 public struct ParsedArgs {
   /// The name of the executable that was invoked from the command line
   public let command: String
