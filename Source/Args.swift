@@ -5,7 +5,6 @@
 //  Created by Omar Abdelhafith on 25/11/2015.
 //  Copyright © 2015 Omar Abdelhafith. All rights reserved.
 //
-import Foundation
 
 /// Return the command line arguments passed to the script
 public class Args {
@@ -15,25 +14,15 @@ public class Args {
     return ProcessInfo.arguments
   }
   
-  private static let lock = NSLock()
-  private static var _cachedResults: ParsedArgs?
+  private static var cachedResults: ParsedArgs?
     
-  static var cacheResults: ParsedArgs? {
-        get {
-            lock.withLock { _cachedResults }
-        }
-        set {
-            lock.withLock { _cachedResults = newValue }
-        }
-    }
-  
   /// Return a parsed list of arguments containing the flags and the parameters passed to the scripts
   /// The flags are recognized as short flags `-f` or long flags `--force`
   /// The flag value will be the argument that follows the flag
   /// `--` is used to mark the terminatin of the flags
   public static var parsed: ParsedArgs {
     
-    if let result = _cachedResults , ProcessInfo.cacheResults {
+    if let result = cachedResults , ProcessInfo.cacheResults {
       return result
     }
     
@@ -53,8 +42,8 @@ public class Args {
         arguments.removeFirst(1)
     }
 
-    _cachedResults = ParsedArgs(command: commandName, flags: parsedFlags, parameters: arguments)
-    return _cachedResults!
+    cachedResults = ParsedArgs(command: commandName, flags: parsedFlags, parameters: arguments)
+    return cachedResults!
   }
 }
 
