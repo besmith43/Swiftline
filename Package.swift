@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.1
 
 import PackageDescription
 
@@ -22,5 +22,5 @@ let package = Package(
                 name: "GeneralTests",
                 dependencies: ["Swiftline"]),
         ],
-        swiftLanguageVersions: [.v4_2, .v5]
+        swiftLanguageVersions: [.v4_2, .v5, .v6]
 )
