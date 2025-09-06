@@ -14,7 +14,7 @@ public class Args {
     return ProcessInfo.arguments
   }
   
-  private static var cachedResults: ParsedArgs?
+  static var cachedResults: ParsedArgs?
     
   /// Return a parsed list of arguments containing the flags and the parameters passed to the scripts
   /// The flags are recognized as short flags `-f` or long flags `--force`
@@ -48,6 +48,7 @@ public class Args {
 }
 
 
+@MainActor
 public struct ParsedArgs {
   /// The name of the executable that was invoked from the command line
   public let command: String
