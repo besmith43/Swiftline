@@ -7,7 +7,6 @@
 //
 
 /// Return the command line arguments passed to the script
-@preconcurrency
 public class Args {
   
   /// Return the list of arguments passed to the script
@@ -15,7 +14,7 @@ public class Args {
     return ProcessInfo.arguments
   }
   
-  static var cachedResults: ParsedArgs?
+  private static var cachedResults: ParsedArgs?
     
   /// Return a parsed list of arguments containing the flags and the parameters passed to the scripts
   /// The flags are recognized as short flags `-f` or long flags `--force`
